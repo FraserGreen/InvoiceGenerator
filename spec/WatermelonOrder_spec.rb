@@ -2,7 +2,7 @@ require 'rspec'
 require_relative '../lib/WatermelonOrder.rb'
 
 describe WatermelonOrder do
-    describe '#get quantity' do
+    describe '#get quantity of watermelons' do
         it 'returns 10' do
             watermelonOrder = WatermelonOrder.new(10)
             expect(watermelonOrder.qty).to eql(10)
