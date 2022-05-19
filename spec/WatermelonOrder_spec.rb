@@ -9,3 +9,12 @@ describe WatermelonOrder do
         end
     end
 end
+
+describe WatermelonOrder do
+    describe '#get pack 0' do
+        it 'returns Pack.new(3, 6.99)' do
+            watermelons = WatermelonOrder.new(100)
+            expect(pack[0]).to eql(Pack.new(3,6.99))
+        end
+    end
+end
