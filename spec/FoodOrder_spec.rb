@@ -10,5 +10,3 @@ describe FoodOrder do
         end
     end
 end
-
-

@@ -45,4 +45,11 @@ describe AvailableFood do
     end
 end
 
-# invalid foodOrder name
+describe AvailableFood do
+    describe '#check non-available food' do
+        it 'returns null' do
+            availableFood = AvailableFood
+            expect(availableFood.packs["Banana"]).to eql(nil)            
+        end
+    end
+end
