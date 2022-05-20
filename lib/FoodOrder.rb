@@ -6,6 +6,10 @@ class FoodOrder
         @@qty = qty
     end
 
+    def self.packs
+        @@packs
+    end
+
     def name
         @@name
     end
