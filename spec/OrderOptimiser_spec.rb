@@ -15,7 +15,7 @@ RSpec.describe OrderOptimiser do
             watermelon_packs = optimisedOrder["Watermelon"]
             expect(watermelon_packs.keys[0].qty).to eql(3)
             expect(watermelon_packs.keys[0].price).to eql(6.99)
-            expect(watermelon_packs[0]).to eql(1)
+            expect(watermelon_packs[watermelon_packs.keys[0]]).to eql(1)
             # foodOrder = FoodOrder.new("Watermelon", 10)
             # expect(foodOrder.name).to eql("Watermelon")
             # expect(foodOrder.qty).to eql(10)
