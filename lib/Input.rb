@@ -19,12 +19,10 @@ class Input
         qty = getQty(name)    
         next if qty == "Back"
  
-        #todo insert into hash
         @items[name] = qty.to_i
         puts "You ordered #{@items[name]} #{name}s!"
         end
 
-        # todo print message saying no items ordered if array is empty, 
         if @items.length < 1
             puts "No items ordered. Thank you for browsing today's selection."
         else
@@ -35,7 +33,7 @@ class Input
     end
 
     def self.getName
-        # puts "Please enter the name of the food you would like to purchase. Today's available food: #{AvailableFood.packs.keys}. Alternatively, type 'Done' if you are ready to recieve your invoice."
+        puts "Please enter the name of the food you would like to purchase. Today's available food: #{AvailableFood.packs.keys}. Alternatively, type 'Done' if you are ready to recieve your invoice."
         name = gets.chomp.strip.capitalize
         return name if name == "Done"
 
@@ -58,7 +56,7 @@ class Input
             break if qty.to_i > 0
             puts "Quantity must be a real number."
             end
-            qty
+            return qty
     end
 
 
