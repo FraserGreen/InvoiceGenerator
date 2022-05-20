@@ -1,5 +1,5 @@
 class FoodOrder
-    attr_reader :name, :qty
+    attr_reader :name, :qty, :packs
     
     def initialize(name, qty)
         @@name = name
@@ -17,6 +17,10 @@ class FoodOrder
 
     def qty
         @@qty
+    end
+
+    def to_s
+    "<name = #{name}, qty = #{qty}>"
     end
 
 end
