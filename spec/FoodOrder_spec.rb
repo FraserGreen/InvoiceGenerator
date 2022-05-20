@@ -9,4 +9,11 @@ RSpec.describe FoodOrder do
             expect(foodOrder.qty).to eql(10)
         end
     end
+
+    describe 'get watermelon packs' do
+        it 'returns array of Packs that are assigned to watermelons' do
+            foodOrder = FoodOrder.new("Watermelon", 10)
+            expect(FoodOrder.packs).to eql(AvailableFood.packs["Watermelon"])
+        end
+    end
 end
