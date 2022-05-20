@@ -4,6 +4,7 @@ class FoodOrder
     def initialize(name, qty)
         @@name = name
         @@qty = qty
+        @@packs = AvailableFood.packs[name]
     end
 
     def self.packs
