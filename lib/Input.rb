@@ -10,31 +10,28 @@ class Input
         puts "Hello, welcome to Fresho!"
 
         while true do
-        
-        name = getName(items)
-        next if name == "Invalid"
-        break if name == "Done"
-        
-        qty = getQty(items, name)    
-        next if qty == "Back"
- 
-        items[name] = qty.to_i
-        puts "You ordered #{items[name]} #{name}s!"
+            name = getName(items)
+            next if name == "Invalid"
+            break if name == "Done"
+            
+            qty = getQty(items, name)    
+            next if qty == "Back"
+    
+            items[name] = qty.to_i
+            puts "You ordered #{items[name]} #{name}s!"
         end
 
         if items.length < 1
             puts "No items ordered. Thank you for browsing today's selection."
+            return nil
         else
-            invoice = OrderOptimiser.optimise(items)
-            Output.display(invoice)
-            #TODO method that outputs output from knapsack method.
+            return items
         end
+            
     end
 
-    
-
     def self.getName(items)
-        puts "Please enter the name of the food you would like to purchase. Today's available food: #{AvailableFood.packs.keys}. Alternatively, type 'Done' if you are ready to recieve your invoice."
+        puts "Please enter the name of the food you would like to purchase. Today's available food: #{AvailableFood.packs.keys}. Alternatively, type 'Done' if you are ready to recieve your order."
         name = gets.chomp.strip.capitalize
         return name if name == "Done"
 
@@ -59,8 +56,4 @@ class Input
             end
             return qty
     end
-
-
 end
-
-Input.displayMenu
