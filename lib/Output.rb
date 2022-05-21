@@ -1,21 +1,23 @@
 class Output
 
-    def self.display(invoice)
-        puts " Invoice:"
+    def self.display(orders)
+        puts ""
+        puts "           Invoice:"
         puts "--------------------------------"
         totalPrice = 0
-        invoice.each { |foodOrder, packHash|
-            puts "#{foodOrder.qty} #{foodOrder.name}"
-            foodItemTotalPrice = 0
-            packHash.each { |pack, qty|
-                puts "   - #{qty} x #{pack.qty} @ $#{pack.price}"
-                foodItemTotalPrice += qty*pack.qty*pack.price
-                totalPrice += foodItemTotalPrice
+        i = 0
+        orders.each { |order, filledFoodPacks|  #for each food type
+            puts "#{order[1]} #{order[0]}s"
+            subtotalPrice = 0
+            filledFoodPacks.each { |pack, qty|      # for each pack
+                puts "   - #{qty} x #{pack.qty} packs @ $#{pack.price}"
+                subtotalPrice += qty*pack.price
+                totalPrice += subtotalPrice
             }
-            puts "                    $#{'%.2f' % foodItemTotalPrice}"
+            puts "                           $#{'%.2f' % subtotalPrice}"
+            i += 1
         }
         puts "--------------------------------"
-        puts "TOTAL               $#{'%.2f' % totalPrice}"
+        puts "TOTAL                      $#{'%.2f' % totalPrice}"
     end
-
 end
