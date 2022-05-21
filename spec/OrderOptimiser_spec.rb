@@ -4,16 +4,8 @@ require_relative '../lib/OrderOptimiser.rb'
 RSpec.describe OrderOptimiser do
     describe '#optimise' do   
 
-        # it 'returns 1 x 3 pack @ $6.99 ea' do
-        #     optimisedOrder = OrderOptimiser.optimise({"Watermelon" => 3})
-        #     watermelon_packs = optimisedOrder["Watermelon"]
-        #     expect(watermelon_packs[watermelon_packs.keys[0]]).to eql(1)
-        #     expect(watermelon_packs.keys[0].qty).to eql(3)
-        #     expect(watermelon_packs.keys[0].price).to eql(6.99)
-        # end
-
         it 'items = {"Watermelon" => 10} returns 2 x 5 pack @ $8.99 ea' do
-            finalisedOrder = OrderOptimiser.optimise({"Watermelon" => 10, "Pineapple" => 14, "Rockmelon" => 13})
+            finalisedOrder = OrderOptimiser.optimise({"Watermelon" => 10})
             food = finalisedOrder[finalisedOrder.keys[0]]
             numPacks = food[food.keys[0]]
             numFoodItemsInPack = food.keys[0].qty
@@ -46,6 +38,17 @@ RSpec.describe OrderOptimiser do
         #     expect(food3[food3.keys[1]]).to eql(1)
         #     expect(food3.keys[1].qty).to eql(3)
         #     expect(food3.keys[1].price).to eql(5.95)
+        # end
+
+        # it 'total item qty is reached exactly by the packs' do
+        #     finalisedOrder = OrderOptimiser.optimise({"Watermelon" => 7})
+        #     finalisedOrder.each{ |order, packs|
+        #         totalQtyOfPacks = 0
+        #         packs.each { |pack, qty|
+        #             totalQtyOfPacks += pack.qty * qty
+        #         }
+        #         expect(order[1]).to eql(totalQtyOfPacks)
+        #     }
         # end
     end
 end
