@@ -1,5 +1,6 @@
 require_relative "Pack"
 
+# Contains available food, and their offered packs. 
 class AvailableFood
     @packs = {}
     @packs["Watermelon"] = [Pack.new(3, 6.99), Pack.new(5, 8.99)]
