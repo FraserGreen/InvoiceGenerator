@@ -22,7 +22,6 @@ RSpec.describe AvailableFood do
         it 'returns attributes of Pack.new(3, 6.99)' do
             expect(AvailableFood.packs["Watermelon"][0].qty).to eql(3)
             expect(AvailableFood.packs["Watermelon"][0].price).to eql(6.99)
-            expect(AvailableFood.packs["Watermelon"][0].value).to eql(3/6.99)
         end
     end
 
