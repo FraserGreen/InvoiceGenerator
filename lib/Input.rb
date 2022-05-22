@@ -4,6 +4,7 @@ require_relative 'Output.rb'
 
 class Input
     
+    # main loop to populate items hash with food types and quantities
     def self.displayMenu
         items = {}
 
@@ -30,6 +31,7 @@ class Input
             
     end
 
+    # gets name of food wanted by user
     def self.getName(items)
         puts "Please enter the name of the food you would like to purchase. Today's available food: #{AvailableFood.packs.keys}. Alternatively, type 'Done' if you are ready to recieve your order."
         name = gets.chomp.strip.capitalize
@@ -45,6 +47,7 @@ class Input
         return name
     end
 
+    # gets quantity of food wanted by user
     def self.getQty(items, name)
         while true do
             puts "How many #{name}s would you like? Alternatively, type 'Back' to go back."
