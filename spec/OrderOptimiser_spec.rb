@@ -34,7 +34,6 @@ RSpec.describe OrderOptimiser do
             packs = AvailableFood.packs["Pineapple"]
             expect(OrderOptimiser.getMinCostOrder(packs, 14)).to eql({packs[0] => 2, packs[1] => 2})
         end
-        
     end
     
     describe '#optimise' do
@@ -49,7 +48,7 @@ RSpec.describe OrderOptimiser do
                 ["Watermelon", 10] => {AvailableFood.packs["Watermelon"][1] => 2},
                 ["Pineapple", 14] =>  {AvailableFood.packs["Pineapple"][0] => 2, 
                                        AvailableFood.packs["Pineapple"][1] => 2},
-                ["Rockmelon", 13] => {AvailableFood.packs["Rockmelon"][0] => 1,
+                ["Rockmelon", 13] =>  {AvailableFood.packs["Rockmelon"][0] => 1,
                                        AvailableFood.packs["Rockmelon"][1] => 2}})
         end
     end

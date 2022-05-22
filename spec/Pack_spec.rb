@@ -1,7 +1,7 @@
 require 'rspec'
 require_relative '../lib/Pack.rb'
 
-describe Pack do
+RSpec.describe Pack do
     describe '#get quantity in pack' do
         it 'returns 3' do
             pack = Pack.new(3, 6.99)
