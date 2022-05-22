@@ -10,10 +10,13 @@ class Output
             puts "#{order[1]} #{order[0]}s"
             subtotalPrice = 0
             filledFoodPacks.each { |pack, qty|      # for each pack
+                if (qty == 0)
+                    puts "ERROR: cannot fulfill order; unobtainable quantity"
+                end
                 puts "   - #{qty} x #{pack.qty} packs @ $#{pack.price}"
                 subtotalPrice += qty*pack.price
-                totalPrice += subtotalPrice
             }
+            totalPrice += subtotalPrice
             puts "                           $#{'%.2f' % subtotalPrice}"
             i += 1
         }
